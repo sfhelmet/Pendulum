@@ -1,13 +1,18 @@
+from numpy import sin, cos
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 
+U = 0.1
+G = 9.8
+L = 15
+
 def der_state(state, t):
-    u = 0.1
-    g = 9.8
-    L = 15
-    y1, y2 = state
-    return [y2, -u*y2 -(g/L)*np.sin(y1)]
+    der = np.zeros_like(state)
+    der[0] = state[1]
+
+    der[1] = -U*state[1]-G/L * sin(state[0])
+    return der
 
 
 y1 = np.linspace(-3.0, 9.0, 20)
