@@ -4,13 +4,6 @@ import matplotlib.pyplot as plt
 import scipy.integrate as integrate
 import matplotlib.animation as animation
 
-lamb = 10 #The reciprocal of the Poisson rate
-num_jolts = 20
-
-#Create random
-rg = np.random.default_rng()
-jt = rg.exponential(lamb, num_jolts)
-
 G = 9.8  # acceleration due to gravity, in m/s^2
 L = 15.0  # length of pendulum in m
 U = 0 #air resistance
@@ -26,6 +19,7 @@ def der_state(state, t):
 dt = 0.025
 t = np.arange(0, 100, dt) #Creates array from initial to final (dt = steps)
 
+#in rad and rad/s
 th = 0
 w = 1.61658 #Critical Value
 
