@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 
 def der_state(state, t):
-    u = 0.1
-    g = 9.8
+    U = 0.1
+    G = 9.8
     L = 15
     y1, y2 = state
-    return [y2, -u*y2 -(g/L)*np.sin(y1)]
+    return [y2, -U*y2 -(G/L)*np.sin(y1)]
 
 
 y1 = np.linspace(-3.0, 9.0, 20)
