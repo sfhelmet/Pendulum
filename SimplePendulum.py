@@ -7,6 +7,8 @@ import matplotlib.animation as animation
 G = 9.8  # acceleration due to gravity, in m/s^2
 L = 15.0  # length of pendulum in m
 U = 0 # air resistance
+
+# Creating a method that returns an array as [theta, w]
 def der_state(state, t):
 
     der = np.zeros_like(state)
@@ -23,6 +25,7 @@ t = np.arange(0, 100, dt) #Creates array from initial to final (dt = steps)
 th = 0
 w = 1.61658 #Critical Value
 
+# an array of all initial conditions above
 state = [th, w]
 
 # solving the solution using odeint
