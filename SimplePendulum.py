@@ -8,7 +8,7 @@ G = 9.8  # acceleration due to gravity, in m/s^2
 L = 15.0  # length of pendulum in m
 U = 0 # air resistance
 
-# Creating a method that returns an array as [theta, w]
+# Creating a method that returns an array as [w, a]
 def der_state(state, t):
 
     der = np.zeros_like(state)

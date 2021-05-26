@@ -10,6 +10,7 @@ L2 = 2.5  # length of pendulum 2 in m
 M1 = 2  # mass of pendulum 1 in kg
 M2 = 2  # mass of pendulum 2 in kg
 
+# Creating a method that returns an array as [w1, a1, w2, a2]
 def der_state(state, t):
 
     der = np.zeros_like(state)

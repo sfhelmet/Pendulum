@@ -3,45 +3,35 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 
-U = 0.1
-G = 9.8
-L = 15
-<<<<<<< HEAD
+U = 0.1 # air resistance (set to 0 for vacuum system)
+G = 9.8 # acceleration due to gravity, in m/s^2
+L = 15 # length of pendulum in m
 
+# Creating a method that returns an array as [w, a]
 def der_state(state, t):
-<<<<<<< HEAD
-=======
-    
-def der_state(state, t):
->>>>>>> 6f9c44bd298fda075dffbf71ac84bea494cc090c
     der = np.zeros_like(state)
     der[0] = state[1]
 
     der[1] = -U*state[1]-G/L * sin(state[0])
     return der
-<<<<<<< HEAD
-=======
-    U = 0.1
-    G = 9.8
-    L = 15
-    y1, y2 = state
-    return [y2, -U*y2 -(G/L)*np.sin(y1)]
->>>>>>> 43fad752b5e7529cdd0ff87bdc60ac781ad6ade9
-=======
->>>>>>> 6f9c44bd298fda075dffbf71ac84bea494cc090c
 
-
+#Create equal distanced points
 y1 = np.linspace(-3.0, 9.0, 20)
 y2 = np.linspace(-2.0, 2.5, 40)
+
 
 Y1, Y2 = np.meshgrid(y1, y2)
 
 t = 0
 
+
+
 u, v = np.zeros(Y1.shape), np.zeros(Y2.shape)
 
 NI, NJ = Y1.shape
 
+
+#Create Arrows
 for i in range(NI):
     for j in range(NJ):
         x = Y1[i, j]
@@ -49,7 +39,7 @@ for i in range(NI):
         yprime = der_state([x, y], t)
         u[i, j] = yprime[0]
         v[i, j] = yprime[1]
-
+#Graph the arrows
 Q = plt.quiver(Y1, Y2, u, v, color='g')
 
 plt.xlabel('$θ$ (rad)')
@@ -57,7 +47,7 @@ plt.ylabel("$θ'$ (rad/s)")
 plt.xlim([-3, 9])
 plt.ylim([-2, 2.5])
 
-#Initial values
+#Initial values for solution curves
 y10 = np.arange(0,2.5,0.5)
 for y20 in y10:
     tspan = np.linspace(0, 100, 2000)
@@ -67,5 +57,5 @@ for y20 in y10:
     plt.plot([ys[0, 0]], [ys[0, 1]], 'o')  # start
 
 plt.title("Pendulum Phase portrait of  θ' vs  θ (with air resistance)")
-plt.savefig('Phase Portrait + Air')
+#plt.savefig('Phase Portrait + Air')
 plt.show()
