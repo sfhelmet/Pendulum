@@ -8,11 +8,19 @@ G = 9.8
 L = 15
 
 def der_state(state, t):
+<<<<<<< HEAD
     der = np.zeros_like(state)
     der[0] = state[1]
 
     der[1] = -U*state[1]-G/L * sin(state[0])
     return der
+=======
+    U = 0.1
+    G = 9.8
+    L = 15
+    y1, y2 = state
+    return [y2, -U*y2 -(G/L)*np.sin(y1)]
+>>>>>>> 43fad752b5e7529cdd0ff87bdc60ac781ad6ade9
 
 
 y1 = np.linspace(-3.0, 9.0, 20)
