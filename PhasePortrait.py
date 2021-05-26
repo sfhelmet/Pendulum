@@ -6,14 +6,20 @@ from scipy.integrate import odeint
 U = 0.1
 G = 9.8
 L = 15
+<<<<<<< HEAD
 
 def der_state(state, t):
 <<<<<<< HEAD
+=======
+    
+def der_state(state, t):
+>>>>>>> 6f9c44bd298fda075dffbf71ac84bea494cc090c
     der = np.zeros_like(state)
     der[0] = state[1]
 
     der[1] = -U*state[1]-G/L * sin(state[0])
     return der
+<<<<<<< HEAD
 =======
     U = 0.1
     G = 9.8
@@ -21,6 +27,8 @@ def der_state(state, t):
     y1, y2 = state
     return [y2, -U*y2 -(G/L)*np.sin(y1)]
 >>>>>>> 43fad752b5e7529cdd0ff87bdc60ac781ad6ade9
+=======
+>>>>>>> 6f9c44bd298fda075dffbf71ac84bea494cc090c
 
 
 y1 = np.linspace(-3.0, 9.0, 20)
